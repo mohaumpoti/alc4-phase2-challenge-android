@@ -42,25 +42,38 @@ public class FirebaseManager {
         return deals;
     }
 
-//    public void addDeal(TravelDeal deal) {
-//        deals.add(deal);
-//    }
-
-    public void addDeal(TravelDeal newDeal) {
-        for (TravelDeal deal : deals) {
-            if (deal.getId().equals(newDeal.getId())) {
-                return;
-            }
-        }
-
-        deals.add(newDeal);
+    public void addDeal(TravelDeal deal) {
+        deals.add(deal);
     }
+
+//    public void addDeal(TravelDeal newDeal) {
+//        for (TravelDeal deal : deals) {
+//            if (deal.getId().equals(newDeal.getId())) {
+//                return;
+//            }
+//        }
+//
+//        deals.add(newDeal);
+//    }
 
     public void removeDeal(String id) {
         for (TravelDeal deal : deals) {
             if (deal.getId().equals(id)) {
                 deals.remove(deal);
+                return;
             }
+        }
+    }
+
+    public void updateDeal(TravelDeal newDeal) {
+        int index = 0;
+        for (TravelDeal deal : deals) {
+            if (deal.getId().equals(newDeal.getId())) {
+                deals.add(index, newDeal);
+                deals.remove(index+1);
+                return;
+            }
+            index++;
         }
     }
 

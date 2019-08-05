@@ -41,7 +41,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class DealListActivity extends AppCompatActivity {
 
-    private Boolean isFirstChildEvent = true;
+    private Boolean isFirstChild = true;
     private FirebaseManager fbManager;
     private FirebaseAuth firebaseAuth;
     private FirebaseAuth.AuthStateListener authStateListener;
@@ -278,7 +278,7 @@ public class DealListActivity extends AppCompatActivity {
 
                 TravelDeal deal = dataSnapshot.getValue(TravelDeal.class);
 
-                if (isFirstChildEvent) { fbManager.resetDealList(); }
+                if (isFirstChild) { fbManager.resetDealList(); }
 
                 if (deal != null) {
                     deal.setId(dataSnapshot.getKey());
@@ -286,13 +286,19 @@ public class DealListActivity extends AppCompatActivity {
                     adapter.updateList(fbManager.getDeals());
                 }
 
-                isFirstChildEvent = false;
+                isFirstChild = false;
             }
 
             @Override
             public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
                 progressBarLoadDealList.setVisibility(View.INVISIBLE);
 
+                TravelDeal deal = dataSnapshot.getValue(TravelDeal.class);
+
+                if (deal != null) {
+                    fbManager.updateDeal(deal);
+                    adapter.updateList(fbManager.getDeals());
+                }
             }
 
             @Override
@@ -304,7 +310,7 @@ public class DealListActivity extends AppCompatActivity {
                 if (deal != null) {
                     String id = dataSnapshot.getKey();
                     deal.setId(id);
-                    fbManager.removeDeal(id);
+                    fbManager.removeDeal(deal.getId());
                     adapter.updateList(fbManager.getDeals());
                 }
             }
@@ -312,6 +318,15 @@ public class DealListActivity extends AppCompatActivity {
             @Override
             public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
                 progressBarLoadDealList.setVisibility(View.INVISIBLE);
+
+                /*
+                TravelDeal deal = dataSnapshot.getValue(TravelDeal.class);
+
+                if (deal != null) {
+                    adapter.updateList(fbManager.getDeals());
+                }
+                */
+
             }
 
             @Override
