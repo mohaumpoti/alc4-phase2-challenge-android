@@ -25,8 +25,6 @@ Travelmantics is an Android App that provides information about **Travel Deals**
 
 
 
-
-
 That's basically it. Have fun using the App!
 
 **-Mohau**
