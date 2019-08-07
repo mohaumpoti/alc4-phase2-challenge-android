@@ -20,8 +20,11 @@ Travelmantics is an Android App that provides information about **Travel Deals**
 
 3. Lastly, when you click on any one of the Travel Deals displayed in the list, a more detailed view of a Deal will be displayed as shown below.
 
+<p align="center">
+  <img src="Images/details.png?raw=true">
+</p>
 
-  ![](Images/details.png?raw=true)
+  <!-- ![](Images/details.png?raw=true) -->
 
 
 
