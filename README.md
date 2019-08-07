@@ -1,7 +1,9 @@
 # Travelmantics - Travel Deals app
 
 Travelmantics is an Android App that provides information about **Travel Deals**. The App uses Firebase to manage its backend.
-<p/>
+<br/>
+<br/>
+<br/>
 
 
 ## Usage Instructions
