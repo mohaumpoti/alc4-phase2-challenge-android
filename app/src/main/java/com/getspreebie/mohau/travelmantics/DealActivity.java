@@ -189,6 +189,10 @@ public class DealActivity extends AppCompatActivity {
             deleteMenuItem.setVisible(false);
         }
 
+        // Hide the Delete Menu Item when creating a New Deal
+        if (isNewDeal)
+            deleteMenuItem.setVisible(false);
+
         return super.onPrepareOptionsMenu(menu);
     }
 
